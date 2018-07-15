@@ -1,20 +1,20 @@
 # JIO Rest Server
-User can **register(sign-up) and sign-in** to access this **jio store server**.
+User can **register (sign-up) and sign-in** to access this **jio store server**.
 A basic online store API written to learn Go Programming Language
 
 This API is a very basic implementation of an online(e-commerce) store.
 - **Authentication** 
 	- New user can sign-up using username and password.
 	- Existing user can sign-in using username and password.
-- **Store REST APIs** :	
+- **Store REST APIs**	
 	- You can perform basic CRUD(CREATE, READ, UPDATE and DELETE) operations
 	- SEARCH on a predefined database of products 
 	- Only Authenticated users can Get, Search, Add, Update and Delete products from database
-- JWT:
+- **JWT**
 	- Authentication is based on JWT(JSON web Tokens) Tokens
-- Database:	
+- **Database**	
 	- API is backed by a predefined **MongoDB** database.
-- Distributed Rate Limit:
+- **Distributed Rate Limit**
 	- Distributed rate limit GET and POST APIs per **IP Address**.
 
 See [API Documentation and Usage](#api-documentation-and-usage) below on how to use it.
@@ -22,20 +22,19 @@ See [API Documentation and Usage](#api-documentation-and-usage) below on how to 
 ## Directory Structure
 ```
 rest-server/
-	
-	|- main.go             - Entry point of the API
-		|- store/              - Contains main API logic files 
-        |- controller.go   - Defines methods handling calls at various endpoints
-        |- model.go        - User and Product models
-        |- repository.go   - Methods interacting with the MongoDB database 
-        |- router.go       - Defines routes and endpoints
-		|- encryption.go   - Method for Password encryption/decryption before saving into Database
-		|- rate-limit.go   - Distributed rate limit GET and POST APIs per IP Address.
+    |- store/              - Contains main API logic files 
+        |- controller.go  - Defines methods handling calls at various endpoints
+        |- model.go       - User and Product models
+        |- repository.go  - Methods interacting with the database
+        |- router.go      - Defines routes and endpoints
+		|- encryption.go  - Method for Password encryption/decryption before saving into Database
+        |- rate-limit.go  - Distributed rate limit GET and POST APIs per IP Address
     |- vendor/             - Dependency packages, necessary for deployment
-    |- README.md           - This readme document
-    |- mockingData.js      - Script to populate local mongodb with dummy data  ( use 'mongo < mockingData.js' )
-	|- rest-server.exe     - Executable for this server.
-  
+    |- README.md
+    |- mockingData.js       - Script to populate local mongodb with dummy data
+    |- main.go              - Entry point of the API
+	|- rest-server.exe      - Executable for this server
+	
 ```
 
 ## Setup

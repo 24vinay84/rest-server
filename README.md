@@ -1,40 +1,40 @@
-# rest-server
-User can sign-up and sign-in to access this store server.
+# JIO Rest Server
+User can **register(sign-up) and sign-in** to access this **jio store server**.
 A basic online store API written to learn Go Programming Language
 
-This API is a pretty basic implementation of an online(e-commerce) store.
-- Authentication : 
-	- New user can sign-up using username and password
-	- Existing user can sign-in using username and password
-- Store APIs :	
+This API is a very basic implementation of an online(e-commerce) store.
+- **Authentication** 
+	- New user can sign-up using username and password.
+	- Existing user can sign-in using username and password.
+- **Store REST APIs** :	
 	- You can perform basic CRUD(CREATE, READ, UPDATE and DELETE) operations
 	- SEARCH on a predefined database of products 
-	- Only Authenticated users can Add, Update and Delete products from database
+	- Only Authenticated users can Get, Search, Add, Update and Delete products from database
 - JWT:
 	- Authentication is based on JWT(JSON web Tokens) Tokens
 - Database:	
-	- API is backed by a predefined Mongo DB database hosted on [mLab](https://mLab.com)
-- Distributed rate limit:
-	- Distributed rate limit GET and POST APIs per IP Address.
+	- API is backed by a predefined **MongoDB** database.
+- Distributed Rate Limit:
+	- Distributed rate limit GET and POST APIs per **IP Address**.
 
 See [API Documentation and Usage](#api-documentation-and-usage) below on how to use it.
 
 ## Directory Structure
 ```
-jip-rest-server/
+rest-server/
 	
-	|- main.go              - Entry point of the API
-	|- rate-limit.go       - Distributed rate limit GET and POST APIs per IP Address.
+	|- main.go             - Entry point of the API
     |- store/              - Contains main API logic files 
-        |- controller.go  - Defines methods handling calls at various endpoints
-        |- model.go       - User and Product models
-        |- repository.go  - Methods interacting with the MongoDB database 
-        |- router.go      - Defines routes and endpoints
-		|- encryption.go  - Method for Password encryption/decryption before saving into Database
+        |- controller.go   - Defines methods handling calls at various endpoints
+        |- model.go        - User and Product models
+        |- repository.go   - Methods interacting with the MongoDB database 
+        |- router.go       - Defines routes and endpoints
+		|- encryption.go   - Method for Password encryption/decryption before saving into Database
+		|- rate-limit.go   - Distributed rate limit GET and POST APIs per IP Address.
     |- vendor/             - Dependency packages, necessary for deployment
-    |- README.md            - This document
-    |- mockingData.js       - Script to populate local mongodb with dummy data  ( use 'mongo < mockingData.js' )
-	|- rest-server.exe  - Executable for this server.
+    |- README.md           - This readme document
+    |- mockingData.js      - Script to populate local mongodb with dummy data  ( use 'mongo < mockingData.js' )
+	|- rest-server.exe     - Executable for this server.
   
 ```
 
@@ -64,7 +64,7 @@ $ go get "github.com/gorilla/handlers"
 // mgo library for handling Mongo DB
 $ go get "gopkg.in/mgo.v2"
 ```
-Good! Now we're ready to run the API :tada: <br>
+Wow! Now we're ready to run the API :tada: <br>
 8. Type `export PORT=8000` in Terminal and open http://localhost:8000 in your browser to see the products.
 
 ## API Documentation and Usage
@@ -75,7 +75,6 @@ It is **recommended** to install some extension to beautify JSON(like [JSON Form
 
 ```sh
 BASE_URL = "http://localhost:$PORT"
-
 ```
 
 For **getting**,**Adding**, **Updating** , "search" and **Deleting** products from database you must send a JWT token in Authentication header.
@@ -92,7 +91,7 @@ For **getting**,**Adding**, **Updating** , "search" and **Deleting** products fr
     -d '{ username: "<YOUR_USERNAME>", password: "<RANDOM_PASSWORD>"}' \
     BASE_URL/sign-in
     ```
-- **Expected Response** - A JWT Authentication Token as shown below
+- **Expected Response** - A JWT Authentication Token
 
 ### 2. Authentication ( Sign-up)
 
@@ -198,7 +197,7 @@ curl -X GET BASE_URL/products/{id}
 * [ ] Improve the code by proper exception handling
 * [ ] User and roles management
 * [ ] Session management using JWT tokens
-* [ ] Distributed rate limit GET and POST APIs per subscriber ID.
+* [ ] **Distributed rate limit GET and POST APIs per subscriber ID**.
 
 
 

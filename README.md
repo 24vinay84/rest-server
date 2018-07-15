@@ -24,7 +24,7 @@ See [API Documentation and Usage](#api-documentation-and-usage) below on how to 
 rest-server/
 	
 	|- main.go             - Entry point of the API
-    |- store/              - Contains main API logic files 
+		|- store/              - Contains main API logic files 
         |- controller.go   - Defines methods handling calls at various endpoints
         |- model.go        - User and Product models
         |- repository.go   - Methods interacting with the MongoDB database 
@@ -77,7 +77,7 @@ It is **recommended** to install some extension to beautify JSON(like [JSON Form
 BASE_URL = "http://localhost:$PORT"
 ```
 
-For **getting**,**Adding**, **Updating** , "search" and **Deleting** products from database you must send a JWT token in Authentication header.
+For **Retreive**,**Adding**, **Updating** , **Search** and **Deleting** products from database you must send a JWT token in Authentication header.
 ### 1. Authentication ( Sign-in)
 
 - **Endpoint Name** - `SignIn` <br>

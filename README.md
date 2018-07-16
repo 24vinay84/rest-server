@@ -17,7 +17,7 @@ This API is a very basic implementation of an online(e-commerce) store.
 - **Distributed Rate Limit**
 	- Distributed rate limit GET and POST APIs per **IP Address**.
 - **Redis**
-	- Redis is **in-memory data structure store ** used for support **Distributed Rate Limit**.
+	- Redis (**https://redis.io**) is **in-memory data structure store** used for support **Distributed Rate Limit**.
 
 
 See [API Documentation and Usage](#api-documentation-and-usage) below on how to use it.

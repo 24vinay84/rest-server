@@ -16,6 +16,9 @@ This API is a very basic implementation of an online(e-commerce) store.
 	- API is backed by a predefined **MongoDB** database.
 - **Distributed Rate Limit**
 	- Distributed rate limit GET and POST APIs per **IP Address**.
+- **Redis**
+	- Redis is **in-memory data structure store ** used for support **Distributed Rate Limit**.
+
 
 See [API Documentation and Usage](#api-documentation-and-usage) below on how to use it.
 
@@ -29,6 +32,7 @@ rest-server/
         |- router.go      - Defines routes and endpoints
 		|- encryption.go  - Method for Password encryption/decryption before saving into Database
         |- rate-limit.go  - Distributed rate limit GET and POST APIs per IP Address
+		|- redis.go  	  - Caching is used for Distributed rate limit with remote server.
     |- vendor/             - Dependency packages, necessary for deployment
     |- README.md
     |- mockingData.js       - Script to populate local mongodb with dummy data
@@ -65,6 +69,15 @@ $ go get "gopkg.in/mgo.v2"
 ```
 Wow! Now we're ready to run the API :tada: <br>
 8. Type `export PORT=8000` in Terminal and open http://localhost:8000 in your browser to see the products.
+9. Open file `store/redis.go`, find the `redis-server-add and redis-password` variable and replace with your remote machine. 
+
+```
+var client = redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379",
+		Password: "", // no password set
+		DB:       0,  // use default DB
+	})
+```
 
 ## API Documentation and Usage
 

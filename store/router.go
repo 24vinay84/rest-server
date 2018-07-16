@@ -70,6 +70,7 @@ var routes = Routes {
 // NewRouter configures a new router to the API
 func NewRouter() *mux.Router {
     
+	getNewClient()
 	limitRequest()
 	
 	router := mux.NewRouter().StrictSlash(true)
